@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <title>Repaso</title>
+    </head>
+    <body>
+        <div>
+            <h1>Multiplo Pequeño</h1>
+        </div>
+        <div>
+            <form> 
+                <button onclick="multiploPequeno()">Multiplo Pequeño</button>
+            </form>
+        </div>
+        <div id ="sum-result">
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+        function multiploPequeno () {
+          event.preventDefault();
+            axios.get('http://localhost:3000/multiploPequeno')
+                .then(response => {
+                    const multiploPequeno = response.data;
+                    document.getElementById("sum-result").innerHTML = multiploPequeno;
+                })
+                .catch(error => console.error(error));
+        };
+        </script>
+    </body>
+</html>

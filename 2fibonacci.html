@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <title>Repaso</title>
+    </head>
+    <body>
+        <div>
+            <h1>fibonacci</h1>
+        </div>
+        <div>
+            <form> 
+                <button onclick="fibonacci()">fibonacci</button>
+            </form>
+        </div>
+        <div id ="sum-result">
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+        function fibonacci () {
+          event.preventDefault();
+            axios.get('http://localhost:3000/fibonacci')
+                .then(response => {
+                    const fibonacci = response.data;
+                    //console.log(fibonacci);
+                    document.getElementById("sum-result").innerHTML = fibonacci;
+                })
+                .catch(error => console.error(error));
+        };
+        </script>
+    </body>
+</html>

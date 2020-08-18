@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <title>Repaso</title>
+    </head>
+    <body>
+        <div>
+            <h1>Palindromo</h1>
+        </div>
+        <div>
+            <form> 
+                <button onclick="palindromo()">Palindromo</button>
+            </form>
+        </div>
+        <div id ="sum-result">
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+        function palindromo () {
+          event.preventDefault();
+            axios.get('http://localhost:3000/palindromo')
+                .then(response => {
+                    const palindromo = response.data;
+                    document.getElementById("sum-result").innerHTML = palindromo;
+                })
+                .catch(error => console.error(error));
+        };
+        </script>
+    </body>
+</html>

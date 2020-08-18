@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <title>Repaso</title>
+    </head>
+    <body>
+        <div>
+            <h1>Multiplos</h1>
+        </div>
+        <div>
+            <form> 
+                <button onclick="multiplos()">Multiplos</button>
+            </form>
+        </div>
+        <div id ="sum-result">
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+        function multiplos () {
+          event.preventDefault();
+            axios.get('http://localhost:3000/multiplos')
+                .then(response => {
+                    const multiplos = response.data;
+                    //console.log(multiplos);
+                    document.getElementById("sum-result").innerHTML = multiplos;
+                })
+                .catch(error => console.error(error));
+        };
+        </script>
+    </body>
+</html>
+

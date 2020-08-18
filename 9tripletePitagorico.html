@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <title>Repaso</title>
+    </head>
+    <body>
+        <div>
+            <h1>Triplete pitagórico especial</h1>
+        </div>
+        <div>
+            <form> 
+                <button onclick="tripletePitagorico()">tripletePitagorico</button>
+            </form>
+        </div>
+        <div id ="sum-result">
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+        function tripletePitagorico () {
+          event.preventDefault();
+            axios.get('http://localhost:3000/tripletePitagorico')
+                .then(response => {
+                    const tripletePitagorico = response.data;
+                    document.getElementById("sum-result").innerHTML = tripletePitagorico;
+                })
+                .catch(error => console.error(error));
+        };
+        </script>
+    </body>
+</html>

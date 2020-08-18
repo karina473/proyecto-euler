@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <title>Repaso</title>
+    </head>
+    <body>
+        <div>
+            <h1>Suma de primos</h1>
+        </div>
+        <div>
+            <form> 
+                <button onclick="sumaPrimo()">sumaPrimos</button>
+            </form>
+        </div>
+        <div id ="sum-result">
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+        function sumaPrimo () {
+          event.preventDefault();
+            axios.get('http://localhost:3000/sumaPrimo')
+                .then(response => {
+                    const sumaPrimo = response.data;
+                    document.getElementById("sum-result").innerHTML = sumaPrimo;
+                })
+                .catch(error => console.error(error));
+        };
+        </script>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <title>Repaso</title>
+    </head>
+    <body>
+        <div>
+            <h1>El producto más grande de una serie</h1>
+        </div>
+        <div>
+            <form> 
+                <button onclick="productoGrande()">productoGrande</button>
+            </form>
+        </div>
+        <div id ="sum-result">
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+        function productoGrande () {
+          event.preventDefault();
+            axios.get('http://localhost:3000/productoGrande')
+                .then(response => {
+                    const productoGrande = response.data;
+                    document.getElementById("sum-result").innerHTML = productoGrande;
+                })
+                .catch(error => console.error(error));
+        };
+        </script>
+    </body>
+</html>
